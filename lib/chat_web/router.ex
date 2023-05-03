@@ -3,6 +3,7 @@ defmodule ChatWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug UUIDChecker
   end
 
   scope "/api", ChatWeb do
