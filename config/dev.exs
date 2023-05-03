@@ -3,7 +3,6 @@ import Config
 # Configure your database
 config :chat, Chat.Repo,
   username: "postgres",
-  password: "postgres",
   hostname: "localhost",
   database: "chat_dev",
   stacktrace: true,
@@ -67,3 +66,5 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
+
+import_config("dev.secret.exs")
