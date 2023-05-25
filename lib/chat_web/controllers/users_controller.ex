@@ -16,7 +16,7 @@ defmodule ChatWeb.UsersController do
   end
 
   def show(conn, params) do
-    with {:ok, user} <- Chat.get_user(params) do
+    with {:ok, user} <- User.get(params) do
       conn
       |> put_status(:ok)
       |> json(%{user: user})
@@ -24,7 +24,7 @@ defmodule ChatWeb.UsersController do
   end
 
   def delete(conn, params) do
-    with {:ok, user} <- Chat.delete_user(params) do
+    with {:ok, user} <- User.delete(params) do
       conn
       |> put_status(:ok)
       |> json(%{user: user})
@@ -32,7 +32,7 @@ defmodule ChatWeb.UsersController do
   end
 
   def create(conn, params) do
-    with {:ok, user} <- Chat.create_user(params) do
+    with {:ok, user} <- User.create(params) do
       conn
       |> put_status(:created)
       |> json(%{user: user})
@@ -40,7 +40,7 @@ defmodule ChatWeb.UsersController do
   end
 
   def update(conn, params) do
-    with {:ok, user} <- Chat.update_user(params) do
+    with {:ok, user} <- User.update(params) do
       conn
       |> put_status(:ok)
       |> json(%{user: user})

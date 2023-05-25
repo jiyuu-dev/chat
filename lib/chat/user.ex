@@ -27,4 +27,9 @@ defmodule Chat.User do
     |> cast(attrs, @columns)
     |> validate_required(@columns)
   end
+
+  defdelegate create(params), to: Chat.Users.Create, as: :call
+  defdelegate update(params), to: Chat.Users.Update, as: :call
+  defdelegate delete(params), to: Chat.Users.Delete, as: :call
+  defdelegate get(params), to: Chat.Users.Get, as: :call
 end
