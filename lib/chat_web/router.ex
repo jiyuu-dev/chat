@@ -1,6 +1,8 @@
 defmodule ChatWeb.Router do
   use ChatWeb, :router
 
+  alias ChatWeb.Plugs.UUIDChecker
+
   pipeline :api do
     plug :accepts, ["json"]
     plug UUIDChecker
