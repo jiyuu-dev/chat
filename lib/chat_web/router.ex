@@ -10,6 +10,9 @@ defmodule ChatWeb.Router do
 
   scope "/api", ChatWeb do
     pipe_through :api
+
+    resources "users", UsersController, except: [:new, :edit]
+    resources "rooms", RoomsController, except: [:new, :edit]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
